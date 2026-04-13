@@ -3,143 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promo Itape | A Vitrine Digital de Itapetininga</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Promo Itape | Vitrine Digital de Itapetininga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --primary: #0056FF;
-            --primary-dark: #003EB8;
-            --secondary: #0A0A0B;
-            --text-main: #F8F9FA;
-            --text-muted: #A0AEC0;
+            --primary: #0062FF;
+            --primary-dark: #004ecc;
+            --primary-light: #3381ff;
             --bg-dark: #050505;
-            --card-bg: #111113;
-            --border: rgba(255, 255, 255, 0.08);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --surface: #0f0f12;
+            --border: #1f1f23;
+            --text-main: #ffffff;
+            --text-dim: #a1a1aa;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            outline: none;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        /* --- Global Elements --- */
-        .container {
-            max-width: 1100px;
+        h1, h2, h3, .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+        }
+
+        /* --- BACKGROUND EFFECTS --- */
+        .glow {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(0, 98, 255, 0.15) 0%, transparent 70%);
+            top: -10vw;
+            right: -10vw;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo .dot { color: var(--primary); }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 180px 5% 100px;
+            text-align: center;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 24px;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(0, 98, 255, 0.1);
+            border: 1px solid rgba(0, 98, 255, 0.2);
+            color: var(--primary-light);
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 14px 32px;
+            padding: 16px 32px;
             border-radius: 12px;
             font-weight: 700;
             text-decoration: none;
             transition: var(--transition);
-            cursor: pointer;
-            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
 
         .btn-primary {
             background: var(--primary);
             color: white;
-            box-shadow: 0 10px 25px -5px rgba(0, 86, 255, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(0, 98, 255, 0.3);
         }
 
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px -5px rgba(0, 86, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(0, 98, 255, 0.5);
         }
 
-        section {
-            padding: 100px 0;
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid var(--border);
         }
 
-        .badge {
-            background: rgba(0, 86, 255, 0.1);
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: inline-block;
-            border: 1px solid rgba(0, 86, 255, 0.2);
+        .btn-secondary:hover {
+            background: var(--border);
+            border-color: #333;
         }
 
-        /* --- Header --- */
-        header {
-            padding: 25px 0;
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(5, 5, 5, 0.8);
+        /* --- SECTIONS --- */
+        section { padding: 100px 5%; position: relative; }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 60px;
         }
 
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .section-header h2 {
+            font-size: 2.5rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
         }
 
-        .logo span {
-            color: var(--primary);
-        }
-
-        /* --- Hero --- */
-        .hero {
-            text-align: center;
-            background: radial-gradient(circle at top center, rgba(0, 86, 255, 0.15) 0%, transparent 70%);
-            padding-top: 120px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin-bottom: 24px;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        /* --- Cards --- */
-        .grid-3 {
+        /* --- CARDS / GRID --- */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 24px;
         }
 
         .card {
-            background: var(--card-bg);
+            background: var(--surface);
             padding: 40px;
             border-radius: 24px;
             border: 1px solid var(--border);
@@ -147,113 +199,166 @@
         }
 
         .card:hover {
-            border-color: rgba(0, 86, 255, 0.4);
-            transform: translateY(-5px);
+            border-color: rgba(0, 98, 255, 0.4);
+            transform: scale(1.02);
         }
 
         .card i {
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
         }
 
         .card p {
-            color: var(--text-muted);
+            color: var(--text-dim);
+            line-height: 1.6;
         }
 
-        /* --- WhatsApp UI Concept --- */
-        .concept-section {
+        /* --- HOW IT WORKS (STEPS) --- */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+        }
+
+        .step-item { position: relative; }
+
+        .step-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.03);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            line-height: 1;
+        }
+
+        /* --- MOCKUP SECTION --- */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .mockup-container {
+            background: linear-gradient(135deg, #111 0%, #000 100%);
+            padding: 30px;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.8);
+        }
+
+        .ui-simulated {
+            background: #0d0d0d;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
+        .ui-header {
+            background: #1a1a1a;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 1px solid #222;
         }
 
-        .phone-mockup {
-            flex: 1;
-            min-width: 300px;
-            background: #000;
-            border: 8px solid #1a1a1a;
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+        .ui-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 50%;
         }
 
-        .msg {
-            background: #075E54;
-            padding: 15px;
-            border-radius: 10px;
+        .ui-body { padding: 20px; }
+
+        .promo-post {
+            background: #161618;
+            border-radius: 12px;
+            border: 1px solid #222;
+            overflow: hidden;
             margin-bottom: 15px;
-            font-size: 0.9rem;
-            max-width: 90%;
         }
 
-        .msg.img-placeholder {
+        .promo-img {
             height: 150px;
-            background: #128C7E;
+            background: linear-gradient(45deg, #111, #1a1a1a);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px 10px 0 0;
-            margin-bottom: 0;
+            color: #333;
         }
 
-        .msg.text {
-            background: #202c33;
-            border-radius: 0 0 10px 10px;
+        .promo-content { padding: 15px; }
+        .promo-content .tag {
+            font-size: 10px;
+            background: rgba(0, 98, 255, 0.15);
+            color: var(--primary-light);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
         }
 
-        /* --- Diferencial / Stats --- */
-        .stats-grid {
-            display: flex;
-            justify-content: space-between;
+        .promo-content h4 { margin: 10px 0 5px; font-size: 1rem; }
+        .promo-content p { font-size: 0.85rem; color: var(--text-dim); }
+
+        .ui-cta {
             background: var(--primary);
-            padding: 60px;
-            border-radius: 32px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-            gap: 30px;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-top: 15px;
         }
 
-        .stat-item h4 {
-            font-size: 2.5rem;
-            font-weight: 800;
-        }
-
-        /* --- Footer --- */
+        /* --- CTA FINAL --- */
         .cta-final {
             text-align: center;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #0A0A0B 100%);
-            padding: 120px 0;
+            padding: 150px 5%;
+            background: radial-gradient(circle at center, rgba(0, 98, 255, 0.1) 0%, transparent 100%);
+        }
+
+        .cta-final h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
         }
 
         footer {
-            padding: 40px 0;
-            text-align: center;
+            padding: 50px 5%;
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dim);
             font-size: 0.9rem;
         }
 
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .concept-section { text-align: center; justify-content: center; }
-            .stats-grid { flex-direction: column; text-align: center; }
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 900px) {
+            .split { grid-template-columns: 1fr; gap: 40px; }
+            .hero h1 { font-size: 3rem; }
+            nav { padding: 15px 5%; }
+            .btn { width: 100%; justify-content: center; }
         }
 
-        /* Animations */
+        /* --- ANIMAÇÕES --- */
         [data-reveal] {
             opacity: 0;
             transform: translateY(30px);
-            transition: 1s all ease;
+            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        [data-reveal].active {
+        [data-reveal].visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -261,148 +366,163 @@
 </head>
 <body>
 
-<header>
-    <div class="container nav-content">
-        <div class="logo">PROMO<span>ITAPE</span></div>
-        <a href="#contato" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Área da Empresa</a>
-    </div>
-</header>
+    <div class="glow"></div>
 
-<main>
-    <section class="hero">
-        <div class="container">
-            <span class="badge">O novo hub de negócios local</span>
-            <h1>A vitrine digital das promoções em Itapetininga.</h1>
-            <p>Conectamos as melhores ofertas da cidade diretamente com quem quer comprar. Sem ruído, sem spam, apenas resultados.</p>
-            <div class="hero-btns">
-                <a href="#contato" class="btn btn-primary">
-                    Quero divulgar minha empresa
-                    <i data-lucide="arrow-right"></i>
-                </a>
+    <nav>
+        <div class="logo">PROMO ITAPE<span class="dot">.</span></div>
+        <a href="#contato" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;">Divulgar agora</a>
+    </nav>
+
+    <header class="hero">
+        <span class="badge" data-reveal>Canal Exclusivo para Empresas de Itapetininga</span>
+        <h1 data-reveal>A nova vitrine digital das promoções locais.</h1>
+        <p data-reveal>Sua empresa na frente de quem realmente compra. Conectamos suas melhores ofertas diretamente com a audiência qualificada da cidade.</p>
+        <div class="cta-group" data-reveal>
+            <a href="#contato" class="btn btn-primary">Quero divulgar minha empresa <i data-lucide="arrow-right"></i></a>
+            <a href="#como-funciona" class="btn btn-secondary">Entender como funciona</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="split">
+            <div data-reveal>
+                <div class="section-header">
+                    <span style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">O DESAFIO LOCAL</span>
+                    <h2>Postar não é o mesmo que ser visto.</h2>
+                    <p>Muitas empresas de Itapetininga perdem vendas porque suas promoções morrem no algoritmo do Instagram ou em grupos de spam. O Promo Itape resolve isso centralizando a atenção de quem quer gastar na cidade.</p>
+                </div>
+                <div class="card">
+                    <p style="color: #fff; font-style: italic; border-left: 3px solid var(--primary); padding-left: 15px;">
+                        "O objetivo é transformar a atenção local em oportunidade real para o comércio de Itapetininga."
+                    </p>
+                </div>
+            </div>
+            <div class="grid" data-reveal>
+                <div class="card">
+                    <i data-lucide="eye-off"></i>
+                    <h3>Fim da invisibilidade</h3>
+                    <p>Sua oferta não se perde no feed. Ela ganha destaque em um canal de alta curadoria.</p>
+                </div>
+                <div class="card">
+                    <i data-lucide="users"></i>
+                    <h3>Público focado</h3>
+                    <p>Alcance pessoas da cidade que já estão no "modo compra", procurando as melhores ofertas.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="processo">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 60px;">
-                <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Simples, direto e eficiente.</h2>
-            </div>
-            <div class="grid-3">
-                <div class="card" data-reveal>
-                    <i data-lucide="send" size="40"></i>
-                    <h3>1. Envie sua oferta</h3>
-                    <p>Você nos envia a imagem e os detalhes da promoção via WhatsApp de forma rápida.</p>
-                </div>
-                <div class="card" data-reveal>
-                    <i data-lucide="layout" size="40"></i>
-                    <h3>2. Curadoria Profissional</h3>
-                    <p>Nossa equipe organiza e formata sua oferta para que ela se destaque no canal.</p>
-                </div>
-                <div class="card" data-reveal>
-                    <i data-lucide="users" size="40"></i>
-                    <h3>3. Alcance Imediato</h3>
-                    <p>Sua promoção é disparada para centenas de consumidores locais qualificados.</p>
-                </div>
-            </div>
+    <section id="como-funciona" style="background: #080808;">
+        <div class="section-header" style="text-align: center; margin: 0 auto 80px;">
+            <h2>Fluxo direto de conversão</h2>
+            <p>Um processo simples para você focar no que importa: atender seus novos clientes.</p>
         </div>
-    </section>
-
-    <section style="background: #080808;">
-        <div class="container concept-section">
-            <div class="phone-mockup" data-reveal>
-                <div style="color: #fff; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px;">
-                    <div style="width: 35px; height: 35px; background: #0056FF; border-radius: 50%;"></div>
-                    Promo Itape
-                </div>
-                <div class="msg img-placeholder">
-                    <i data-lucide="image" color="#fff"></i>
-                </div>
-                <div class="msg text">
-                    <strong>🔥 OFERTA EXCLUSIVA</strong><br>
-                    Pizza em dobro na Bella Itape! Válido apenas hoje apresentando este print.<br>
-                    <span style="color: #34b7f1; font-size: 0.8rem;">Clique para pedir →</span>
-                </div>
-                <div class="msg text" style="margin-left: auto; background: #054d44;">
-                    Vim pelo Promo Itape! Gostaria da promoção.
+        <div class="steps-container">
+            <div class="step-item" data-reveal>
+                <span class="step-number">01</span>
+                <div class="card">
+                    <i data-lucide="send"></i>
+                    <h3>Você envia</h3>
+                    <p>Mande sua promoção e fotos via WhatsApp de forma rápida e prática.</p>
                 </div>
             </div>
-            <div style="flex: 1; min-width: 300px;">
-                <span class="badge">O Conceito</span>
-                <h2 style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">Onde a cidade se encontra para economizar.</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px;">O <strong>Promo Itape</strong> não é apenas um grupo; é uma ferramenta de vendas. Centralizamos o comércio de Itapetininga em um só lugar, evitando que sua empresa se perca no feed infinito das redes sociais.</p>
-                <ul style="list-style: none; color: var(--text-main);">
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="check-circle-2" color="#0056FF"></i> Sem algoritmos barrando sua entrega
-                    </li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="check-circle-2" color="#0056FF"></i> Público 100% da região de Itapetininga
-                    </li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="check-circle-2" color="#0056FF"></i> Foco total em conversão e vendas
-                    </li>
-                </ul>
+            <div class="step-item" data-reveal style="transition-delay: 0.1s;">
+                <span class="step-number">02</span>
+                <div class="card">
+                    <i data-lucide="layout"></i>
+                    <h3>Nós publicamos</h3>
+                    <p>Nossa equipe organiza sua oferta para garantir o máximo de apelo visual e clareza.</p>
+                </div>
+            </div>
+            <div class="step-item" data-reveal style="transition-delay: 0.2s;">
+                <span class="step-number">03</span>
+                <div class="card">
+                    <i data-lucide="shopping-cart"></i>
+                    <h3>O cliente compra</h3>
+                    <p>Os interessados entram em contato direto com o seu negócio para fechar a compra.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section>
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h4>Local</h4>
-                    <p>Foco exclusivo em Itapetininga</p>
+        <div class="split">
+            <div class="mockup-container" data-reveal>
+                <div class="ui-simulated">
+                    <div class="ui-header">
+                        <div class="ui-avatar"></div>
+                        <div style="font-size: 0.8rem; font-weight: bold;">PROMO ITAPE <span style="color: var(--text-dim); font-weight: normal;">• Canal</span></div>
+                    </div>
+                    <div class="ui-body">
+                        <div class="promo-post">
+                            <div class="promo-img"><i data-lucide="image" size="48"></i></div>
+                            <div class="promo-content">
+                                <span class="tag">GASTRONOMIA</span>
+                                <h4>Bella Pizza Itape</h4>
+                                <p>Combo Família: 2 Pizzas + Refri com 30% OFF retirando no balcão hoje!</p>
+                                <div class="ui-cta">Ver Oferta no WhatsApp</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.7rem; color: #444; text-align: center;">Visto por 1.420 pessoas da cidade</p>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h4>Direto</h4>
-                    <p>Notificações na palma da mão</p>
+            </div>
+            <div data-reveal>
+                <div class="section-header">
+                    <h2>Sua empresa, posicionada com autoridade.</h2>
+                    <p>Diferente de grupos de Facebook poluídos, aqui sua marca aparece em um ambiente limpo, profissional e tecnológico.</p>
                 </div>
-                <div class="stat-item">
-                    <h4>Limpo</h4>
-                    <p>Sem anúncios irrelevantes</p>
-                </div>
+                <ul style="list-style: none; color: var(--text-dim); line-height: 2.2;">
+                    <li><i data-lucide="check" style="color: var(--primary); margin-right: 10px; vertical-align: middle;"></i> Curadoria que valoriza seu produto</li>
+                    <li><i data-lucide="check" style="color: var(--primary); margin-right: 10px; vertical-align: middle;"></i> Sem spam de correntes ou mensagens inúteis</li>
+                    <li><i data-lucide="check" style="color: var(--primary); margin-right: 10px; vertical-align: middle;"></i> Link direto para o seu atendimento</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section class="cta-final" id="contato">
-        <div class="container">
-            <h2 style="font-size: 3rem; margin-bottom: 20px;">Pronto para destacar sua empresa?</h2>
-            <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Junte-se às empresas que já entenderam que o futuro do comércio local é a conexão direta. Fale com nossa equipe agora.</p>
-            <a href="#" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 40px;">
-                Quero aparecer para a cidade
-                <i data-lucide="message-square"></i>
+        <div data-reveal>
+            <h2>Coloque sua promoção onde a cidade vai ver.</h2>
+            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 40px;">Não deixe sua empresa ser esquecida. Junte-se ao canal que está mudando o consumo local em Itapetininga.</p>
+            <a href="https://wa.me/SEU_NUMERO_AQUI" class="btn btn-primary" style="padding: 20px 48px; font-size: 1.2rem;">
+                Quero apresentar minha empresa <i data-lucide="message-square"></i>
             </a>
+            <p style="margin-top: 30px; font-size: 0.8rem; color: #444;">Suporte e curadoria 100% humanizados.</p>
         </div>
     </section>
-</main>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2024 Promo Itape - Todos os direitos reservados. Itapetininga/SP</p>
-    </div>
-</footer>
+    <footer>
+        <div class="logo" style="font-size: 1.1rem;">PROMO ITAPE<span class="dot">.</span></div>
+        <p>&copy; 2024 • Itapetininga, SP. Todos os direitos reservados.</p>
+    </footer>
 
-<script>
-    // Inicializar ícones
-    lucide.createIcons();
+    <script>
+        // Inicializar Ícones
+        lucide.createIcons();
 
-    // Efeito de revelação ao scroll
-    const reveal = () => {
-        const reveals = document.querySelectorAll('[data-reveal]');
-        reveals.forEach(el => {
-            const windowHeight = window.innerHeight;
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                el.classList.add('active');
-            }
+        // Animação de Scroll (Reveal)
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+        // Efeito Parallax suave no Glow
+        window.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.glow');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            glow.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
         });
-    }
-
-    window.addEventListener('scroll', reveal);
-    reveal(); // Executar uma vez ao carregar
-</script>
-
+    </script>
 </body>
 </html>
