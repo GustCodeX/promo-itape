@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Itape | A Vitrine Digital de Itapetininga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #0056FF;
+            --primary-dark: #003EB8;
+            --secondary: #0A0A0B;
+            --text-main: #F8F9FA;
+            --text-muted: #A0AEC0;
+            --bg-dark: #050505;
+            --card-bg: #111113;
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Elements --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 86, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(0, 86, 255, 0.5);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .badge {
+            background: rgba(0, 86, 255, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            border: 1px solid rgba(0, 86, 255, 0.2);
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(5, 5, 5, 0.8);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(0, 86, 255, 0.15) 0%, transparent 70%);
+            padding-top: 120px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* --- Cards --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: rgba(0, 86, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+        }
+
+        /* --- WhatsApp UI Concept --- */
+        .concept-section {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .phone-mockup {
+            flex: 1;
+            min-width: 300px;
+            background: #000;
+            border: 8px solid #1a1a1a;
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+        }
+
+        .msg {
+            background: #075E54;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            max-width: 90%;
+        }
+
+        .msg.img-placeholder {
+            height: 150px;
+            background: #128C7E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 0;
+        }
+
+        .msg.text {
+            background: #202c33;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* --- Diferencial / Stats --- */
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            background: var(--primary);
+            padding: 60px;
+            border-radius: 32px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        /* --- Footer --- */
+        .cta-final {
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0A0A0B 100%);
+            padding: 120px 0;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .concept-section { text-align: center; justify-content: center; }
+            .stats-grid { flex-direction: column; text-align: center; }
+        }
+
+        /* Animations */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s all ease;
+        }
+
+        [data-reveal].active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-content">
+        <div class="logo">PROMO<span>ITAPE</span></div>
+        <a href="#contato" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.9rem;">Área da Empresa</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <span class="badge">O novo hub de negócios local</span>
+            <h1>A vitrine digital das promoções em Itapetininga.</h1>
+            <p>Conectamos as melhores ofertas da cidade diretamente com quem quer comprar. Sem ruído, sem spam, apenas resultados.</p>
+            <div class="hero-btns">
+                <a href="#contato" class="btn btn-primary">
+                    Quero divulgar minha empresa
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="processo">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Simples, direto e eficiente.</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card" data-reveal>
+                    <i data-lucide="send" size="40"></i>
+                    <h3>1. Envie sua oferta</h3>
+                    <p>Você nos envia a imagem e os detalhes da promoção via WhatsApp de forma rápida.</p>
+                </div>
+                <div class="card" data-reveal>
+                    <i data-lucide="layout" size="40"></i>
+                    <h3>2. Curadoria Profissional</h3>
+                    <p>Nossa equipe organiza e formata sua oferta para que ela se destaque no canal.</p>
+                </div>
+                <div class="card" data-reveal>
+                    <i data-lucide="users" size="40"></i>
+                    <h3>3. Alcance Imediato</h3>
+                    <p>Sua promoção é disparada para centenas de consumidores locais qualificados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #080808;">
+        <div class="container concept-section">
+            <div class="phone-mockup" data-reveal>
+                <div style="color: #fff; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 35px; height: 35px; background: #0056FF; border-radius: 50%;"></div>
+                    Promo Itape
+                </div>
+                <div class="msg img-placeholder">
+                    <i data-lucide="image" color="#fff"></i>
+                </div>
+                <div class="msg text">
+                    <strong>🔥 OFERTA EXCLUSIVA</strong><br>
+                    Pizza em dobro na Bella Itape! Válido apenas hoje apresentando este print.<br>
+                    <span style="color: #34b7f1; font-size: 0.8rem;">Clique para pedir →</span>
+                </div>
+                <div class="msg text" style="margin-left: auto; background: #054d44;">
+                    Vim pelo Promo Itape! Gostaria da promoção.
+                </div>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <span class="badge">O Conceito</span>
+                <h2 style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">Onde a cidade se encontra para economizar.</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px;">O <strong>Promo Itape</strong> não é apenas um grupo; é uma ferramenta de vendas. Centralizamos o comércio de Itapetininga em um só lugar, evitando que sua empresa se perca no feed infinito das redes sociais.</p>
+                <ul style="list-style: none; color: var(--text-main);">
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="check-circle-2" color="#0056FF"></i> Sem algoritmos barrando sua entrega
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="check-circle-2" color="#0056FF"></i> Público 100% da região de Itapetininga
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        <i data-lucide="check-circle-2" color="#0056FF"></i> Foco total em conversão e vendas
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>Local</h4>
+                    <p>Foco exclusivo em Itapetininga</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Direto</h4>
+                    <p>Notificações na palma da mão</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Limpo</h4>
+                    <p>Sem anúncios irrelevantes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final" id="contato">
+        <div class="container">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">Pronto para destacar sua empresa?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">Junte-se às empresas que já entenderam que o futuro do comércio local é a conexão direta. Fale com nossa equipe agora.</p>
+            <a href="#" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 40px;">
+                Quero aparecer para a cidade
+                <i data-lucide="message-square"></i>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Promo Itape - Todos os direitos reservados. Itapetininga/SP</p>
+    </div>
+</footer>
+
+<script>
+    // Inicializar ícones
+    lucide.createIcons();
+
+    // Efeito de revelação ao scroll
+    const reveal = () => {
+        const reveals = document.querySelectorAll('[data-reveal]');
+        reveals.forEach(el => {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+            const elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', reveal);
+    reveal(); // Executar uma vez ao carregar
+</script>
+
+</body>
+</html>
