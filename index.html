@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promo Itape | Vitrine Digital de Itapetininga</title>
+    <title>Promo Itape | A Vitrine Digital de Itapetininga</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
             --primary: #0062FF;
             --primary-dark: #004ecc;
-            --primary-light: #3381ff;
-            --bg-dark: #050505;
-            --surface: #0f0f12;
-            --border: #1f1f23;
+            --bg: #050507;
+            --surface: #0f0f13;
+            --border: rgba(255, 255, 255, 0.08);
             --text-main: #ffffff;
-            --text-dim: #a1a1aa;
+            --text-dim: #94a3b8;
             --white: #ffffff;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -31,10 +33,10 @@
         html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -43,147 +45,152 @@
             font-weight: 800;
         }
 
-        /* --- BACKGROUND EFFECTS --- */
+        /* --- Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* --- Background Glows --- */
         .glow {
             position: absolute;
             width: 40vw;
             height: 40vw;
-            background: radial-gradient(circle, rgba(0, 98, 255, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 98, 255, 0.12) 0%, transparent 70%);
             top: -10vw;
             right: -10vw;
             z-index: -1;
             pointer-events: none;
         }
 
-        /* --- NAV --- */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 20px 0;
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            background: rgba(5, 5, 5, 0.8);
+            background: rgba(5, 5, 7, 0.8);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: -1px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .logo .dot { color: var(--primary); }
+        .logo span { color: var(--primary); }
 
-        /* --- HERO --- */
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 30px -5px rgba(0, 98, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px -5px rgba(0, 98, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Hero --- */
         .hero {
-            padding: 180px 5% 100px;
+            padding: 160px 0 100px;
             text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
         }
 
         .badge {
-            display: inline-block;
-            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: rgba(0, 98, 255, 0.1);
             border: 1px solid rgba(0, 98, 255, 0.2);
-            color: var(--primary-light);
+            padding: 6px 14px;
             border-radius: 100px;
+            font-size: 0.8rem;
             font-weight: 600;
-            font-size: 0.85rem;
+            color: var(--primary);
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.8rem);
-            line-height: 1;
-            letter-spacing: -3px;
-            margin-bottom: 30px;
-            background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            background: linear-gradient(180deg, #fff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
+            font-size: 1.2rem;
             color: var(--text-dim);
-            font-size: 1.25rem;
-            line-height: 1.6;
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto 40px;
         }
 
-        .cta-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 20px 40px -10px rgba(0, 98, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 25px 50px -12px rgba(0, 98, 255, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border);
-            border-color: #333;
-        }
-
-        /* --- SECTIONS --- */
-        section { padding: 100px 5%; position: relative; }
-
+        /* --- Sections General --- */
         .section-header {
-            max-width: 700px;
+            max-width: 800px;
             margin-bottom: 60px;
         }
 
         .section-header h2 {
             font-size: 2.5rem;
             letter-spacing: -1.5px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .section-header p {
-            color: var(--text-dim);
             font-size: 1.1rem;
+            color: var(--text-dim);
         }
 
-        /* --- CARDS / GRID --- */
+        /* --- Cards --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -199,8 +206,8 @@
         }
 
         .card:hover {
-            border-color: rgba(0, 98, 255, 0.4);
-            transform: scale(1.02);
+            border-color: rgba(0, 98, 255, 0.3);
+            transform: translateY(-5px);
         }
 
         .card i {
@@ -215,143 +222,164 @@
 
         .card p {
             color: var(--text-dim);
-            line-height: 1.6;
+            font-size: 1rem;
         }
 
-        /* --- HOW IT WORKS (STEPS) --- */
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            position: relative;
-        }
-
-        .step-item { position: relative; }
-
-        .step-number {
-            font-size: 4rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.03);
-            position: absolute;
-            top: -20px;
-            left: 0;
-            line-height: 1;
-        }
-
-        /* --- MOCKUP SECTION --- */
+        /* --- Split Sections --- */
         .split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
 
-        .mockup-container {
-            background: linear-gradient(135deg, #111 0%, #000 100%);
-            padding: 30px;
-            border-radius: 40px;
-            border: 1px solid var(--border);
-            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.8);
+        .split-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
-        .ui-simulated {
-            background: #0d0d0d;
-            border-radius: 20px;
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .feature-item i {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        /* --- Partnership Section --- */
+        .partnership-box {
+            background: linear-gradient(145deg, #0f0f13 0%, #050507 100%);
+            border: 1px solid var(--primary);
+            padding: 60px;
+            border-radius: 32px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
-            border: 1px solid #222;
         }
 
-        .ui-header {
-            background: #1a1a1a;
-            padding: 15px 20px;
+        .partnership-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(0, 98, 255, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        /* --- Mockup WhatsApp --- */
+        .mockup-container {
+            background: #000;
+            border-radius: 32px;
+            padding: 12px;
+            border: 6px solid #1a1a1e;
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+        }
+
+        .whatsapp-ui {
+            background: #0b141a;
+            border-radius: 22px;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        .wa-header {
+            background: #202c33;
+            padding: 15px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid #222;
+            gap: 10px;
         }
 
-        .ui-avatar {
-            width: 32px;
-            height: 32px;
+        .wa-avatar {
+            width: 35px; height: 35px;
             background: var(--primary);
             border-radius: 50%;
         }
 
-        .ui-body { padding: 20px; }
-
-        .promo-post {
-            background: #161618;
-            border-radius: 12px;
-            border: 1px solid #222;
-            overflow: hidden;
-            margin-bottom: 15px;
+        .wa-body {
+            padding: 20px;
+            background: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            height: 400px;
         }
 
-        .promo-img {
-            height: 150px;
-            background: linear-gradient(45deg, #111, #1a1a1a);
+        .wa-msg {
+            background: #202c33;
+            border-radius: 0 12px 12px 12px;
+            padding: 10px;
+            max-width: 85%;
+            color: #e9edef;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .promo-card-wa {
+            background: #ffffff;
+            border-radius: 8px;
+            margin-top: 5px;
+            overflow: hidden;
+            color: #000;
+        }
+
+        .promo-img-wa {
+            height: 140px;
+            background: #f1f1f1;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333;
+            color: #ccc;
         }
 
-        .promo-content { padding: 15px; }
-        .promo-content .tag {
-            font-size: 10px;
-            background: rgba(0, 98, 255, 0.15);
-            color: var(--primary-light);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        .promo-content h4 { margin: 10px 0 5px; font-size: 1rem; }
-        .promo-content p { font-size: 0.85rem; color: var(--text-dim); }
-
-        .ui-cta {
+        .promo-info-wa { padding: 12px; }
+        .promo-info-wa h4 { margin-bottom: 4px; font-weight: 800; color: #111; }
+        .promo-info-wa p { font-size: 0.8rem; color: #666; }
+        .wa-cta {
             background: var(--primary);
             color: white;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 4px;
+            margin-top: 10px;
             font-weight: bold;
-            margin-top: 15px;
+            font-size: 0.8rem;
         }
 
-        /* --- CTA FINAL --- */
-        .cta-final {
+        /* --- Quotes Section --- */
+        .quotes {
             text-align: center;
-            padding: 150px 5%;
-            background: radial-gradient(circle at center, rgba(0, 98, 255, 0.1) 0%, transparent 100%);
+            background: rgba(0, 98, 255, 0.03);
         }
 
-        .cta-final h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 24px;
-            letter-spacing: -2px;
+        .quote-text {
+            font-size: 1.8rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            color: var(--white);
         }
 
+        /* --- Footer --- */
         footer {
-            padding: 50px 5%;
+            padding: 60px 0;
             border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
             color: var(--text-dim);
             font-size: 0.9rem;
         }
 
-        /* --- RESPONSIVIDADE --- */
+        /* --- Responsiveness --- */
         @media (max-width: 900px) {
             .split { grid-template-columns: 1fr; gap: 40px; }
-            .hero h1 { font-size: 3rem; }
-            nav { padding: 15px 5%; }
-            .btn { width: 100%; justify-content: center; }
+            .hero h1 { font-size: 2.8rem; }
+            section { padding: 70px 0; }
         }
 
-        /* --- ANIMAÇÕES --- */
+        /* --- Animations --- */
         [data-reveal] {
             opacity: 0;
             transform: translateY(30px);
@@ -369,158 +397,219 @@
     <div class="glow"></div>
 
     <nav>
-        <div class="logo">PROMO ITAPE<span class="dot">.</span></div>
-        <a href="#contato" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;">Divulgar agora</a>
+        <div class="container nav-content">
+            <div class="logo">PROMO <span>ITAPE</span></div>
+            <a href="#contato" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">Quero participar</a>
+        </div>
     </nav>
 
-    <header class="hero">
-        <span class="badge" data-reveal>Canal Exclusivo para Empresas de Itapetininga</span>
+    <header class="hero container">
+        <div class="badge" data-reveal>Parceria Estratégica para Itapetininga</div>
         <h1 data-reveal>A nova vitrine digital das promoções locais.</h1>
-        <p data-reveal>Sua empresa na frente de quem realmente compra. Conectamos suas melhores ofertas diretamente com a audiência qualificada da cidade.</p>
+        <p data-reveal>Sua empresa na frente de quem realmente compra. Centralizamos as melhores ofertas da cidade em um canal exclusivo onde a atenção do público já está presente.</p>
         <div class="cta-group" data-reveal>
-            <a href="#contato" class="btn btn-primary">Quero divulgar minha empresa <i data-lucide="arrow-right"></i></a>
-            <a href="#como-funciona" class="btn btn-secondary">Entender como funciona</a>
+            <a href="#contato" class="btn btn-primary">Quero participar</a>
+            <a href="#ideia" class="btn btn-secondary">Entender como funciona</a>
         </div>
     </header>
 
-    <section>
+    <section id="ideia" class="container">
         <div class="split">
-            <div data-reveal>
-                <div class="section-header">
-                    <span style="color: var(--primary); font-weight: bold; font-size: 0.9rem;">O DESAFIO LOCAL</span>
-                    <h2>Postar não é o mesmo que ser visto.</h2>
-                    <p>Muitas empresas de Itapetininga perdem vendas porque suas promoções morrem no algoritmo do Instagram ou em grupos de spam. O Promo Itape resolve isso centralizando a atenção de quem quer gastar na cidade.</p>
+            <div class="split-content" data-reveal>
+                <span class="badge">O Desafio</span>
+                <h2>Por que as boas promoções nem sempre vendem?</h2>
+                <p style="margin-bottom: 24px;">Postar no Instagram nem sempre é o suficiente. O algoritmo limita o alcance e a sua oferta acaba perdida em um mar de conteúdos dispersos.</p>
+                <div class="feature-item">
+                    <i data-lucide="eye-off" size="24"></i>
+                    <div>
+                        <strong>Visibilidade Limitada</strong>
+                        <p>Muitas vezes, o seu cliente ideal nem chega a saber que você tem uma oferta ativa.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <p style="color: #fff; font-style: italic; border-left: 3px solid var(--primary); padding-left: 15px;">
-                        "O objetivo é transformar a atenção local em oportunidade real para o comércio de Itapetininga."
-                    </p>
+                <div class="feature-item">
+                    <i data-lucide="users-2" size="24"></i>
+                    <div>
+                        <strong>Atenção Fragmentada</strong>
+                        <p>O público da cidade não consegue acompanhar individualmente cada empresa local.</p>
+                    </div>
                 </div>
             </div>
-            <div class="grid" data-reveal>
-                <div class="card">
-                    <i data-lucide="eye-off"></i>
-                    <h3>Fim da invisibilidade</h3>
-                    <p>Sua oferta não se perde no feed. Ela ganha destaque em um canal de alta curadoria.</p>
+            <div class="card" data-reveal style="background: var(--primary); color: white;">
+                <i data-lucide="lightbulb" size="40" style="color: white;"></i>
+                <h3 style="color: white;">A Solução: Promo Itape</h3>
+                <p style="color: rgba(255,255,255,0.8);">Criamos um hub centralizado. Um único lugar onde o consumidor de Itapetininga vai para encontrar o que precisa economizando, e onde sua empresa ganha o destaque que merece.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #08080a;">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <h2>A força do canal mais utilizado do mundo.</h2>
+                <p>O WhatsApp não é apenas um app de mensagens, é onde a vida acontece. Com mais de **3 bilhões de usuários ativos**, ele é a ferramenta mais poderosa para converter visibilidade em vendas imediatas.</p>
+            </div>
+            <div class="grid">
+                <div class="card" data-reveal>
+                    <i data-lucide="layout-grid"></i>
+                    <h3>Centralização</h3>
+                    <p>Reunimos ofertas de diversos segmentos em um fluxo organizado e profissional.</p>
                 </div>
-                <div class="card">
-                    <i data-lucide="users"></i>
-                    <h3>Público focado</h3>
-                    <p>Alcance pessoas da cidade que já estão no "modo compra", procurando as melhores ofertas.</p>
+                <div class="card" data-reveal style="transition-delay: 0.1s;">
+                    <i data-lucide="zap"></i>
+                    <h3>Agilidade</h3>
+                    <p>Comunicação direta. O cliente vê a oferta e entra em contato com um clique.</p>
+                </div>
+                <div class="card" data-reveal style="transition-delay: 0.2s;">
+                    <i data-lucide="map-pin"></i>
+                    <h3>Foco Local</h3>
+                    <p>Conectamos empresas de Itapetininga exclusivamente com moradores da cidade.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="como-funciona" style="background: #080808;">
-        <div class="section-header" style="text-align: center; margin: 0 auto 80px;">
-            <h2>Fluxo direto de conversão</h2>
-            <p>Um processo simples para você focar no que importa: atender seus novos clientes.</p>
-        </div>
-        <div class="steps-container">
-            <div class="step-item" data-reveal>
-                <span class="step-number">01</span>
-                <div class="card">
-                    <i data-lucide="send"></i>
-                    <h3>Você envia</h3>
-                    <p>Mande sua promoção e fotos via WhatsApp de forma rápida e prática.</p>
-                </div>
-            </div>
-            <div class="step-item" data-reveal style="transition-delay: 0.1s;">
-                <span class="step-number">02</span>
-                <div class="card">
-                    <i data-lucide="layout"></i>
-                    <h3>Nós publicamos</h3>
-                    <p>Nossa equipe organiza sua oferta para garantir o máximo de apelo visual e clareza.</p>
-                </div>
-            </div>
-            <div class="step-item" data-reveal style="transition-delay: 0.2s;">
-                <span class="step-number">03</span>
-                <div class="card">
-                    <i data-lucide="shopping-cart"></i>
-                    <h3>O cliente compra</h3>
-                    <p>Os interessados entram em contato direto com o seu negócio para fechar a compra.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
+    <section class="container">
         <div class="split">
             <div class="mockup-container" data-reveal>
-                <div class="ui-simulated">
-                    <div class="ui-header">
-                        <div class="ui-avatar"></div>
-                        <div style="font-size: 0.8rem; font-weight: bold;">PROMO ITAPE <span style="color: var(--text-dim); font-weight: normal;">• Canal</span></div>
+                <div class="whatsapp-ui">
+                    <div class="wa-header">
+                        <div class="wa-avatar"></div>
+                        <div>
+                            <div style="font-weight: bold; font-size: 0.9rem; color: white;">Promo Itape</div>
+                            <div style="font-size: 0.7rem; color: #8696a0;">Canal Oficial</div>
+                        </div>
                     </div>
-                    <div class="ui-body">
-                        <div class="promo-post">
-                            <div class="promo-img"><i data-lucide="image" size="48"></i></div>
-                            <div class="promo-content">
-                                <span class="tag">GASTRONOMIA</span>
-                                <h4>Bella Pizza Itape</h4>
-                                <p>Combo Família: 2 Pizzas + Refri com 30% OFF retirando no balcão hoje!</p>
-                                <div class="ui-cta">Ver Oferta no WhatsApp</div>
+                    <div class="wa-body">
+                        <div class="wa-msg">
+                            🔥 <strong>OFERTA DO DIA</strong>
+                            <div class="promo-card-wa">
+                                <div class="promo-img-wa">SUA EMPRESA AQUI</div>
+                                <div class="promo-info-wa">
+                                    <h4>Combo Especial Itape</h4>
+                                    <p>30% de desconto para os primeiros 20 pedidos hoje!</p>
+                                    <div class="wa-cta">Resgatar Promoção</div>
+                                </div>
                             </div>
                         </div>
-                        <p style="font-size: 0.7rem; color: #444; text-align: center;">Visto por 1.420 pessoas da cidade</p>
                     </div>
                 </div>
             </div>
-            <div data-reveal>
-                <div class="section-header">
-                    <h2>Sua empresa, posicionada com autoridade.</h2>
-                    <p>Diferente de grupos de Facebook poluídos, aqui sua marca aparece em um ambiente limpo, profissional e tecnológico.</p>
+            <div class="split-content" data-reveal>
+                <h2>Por que sua empresa deveria estar aqui?</h2>
+                <p style="margin-bottom: 30px;">O Promo Itape não é apenas um canal de divulgação, é um ecossistema de oportunidades.</p>
+                <div class="feature-item">
+                    <i data-lucide="trending-up"></i>
+                    <div>
+                        <strong>Crescimento de Alcance</strong>
+                        <p>Sua promoção chega para pessoas que ainda não seguem suas redes sociais.</p>
+                    </div>
                 </div>
-                <ul style="list-style: none; color: var(--text-dim); line-height: 2.2;">
-                    <li><i data-lucide="check" style="color: var(--primary); margin-right: 10px; vertical-align: middle;"></i> Curadoria que valoriza seu produto</li>
-                    <li><i data-lucide="check" style="color: var(--primary); margin-right: 10px; vertical-align: middle;"></i> Sem spam de correntes ou mensagens inúteis</li>
-                    <li><i data-lucide="check" style="color: var(--primary); margin-right: 10px; vertical-align: middle;"></i> Link direto para o seu atendimento</li>
-                </ul>
+                <div class="feature-item">
+                    <i data-lucide="target"></i>
+                    <div>
+                        <strong>Público Qualificado</strong>
+                        <p>Quem está no canal entrou com um objetivo: comprar e aproveitar ofertas.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i data-lucide="award"></i>
+                    <div>
+                        <strong>Autoridade Local</strong>
+                        <p>Sua marca posicionada em um ambiente profissional e curado.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-final" id="contato">
+    <section class="container" id="parceria">
+        <div class="partnership-box" data-reveal>
+            <span class="badge">Oportunidade de Lançamento</span>
+            <h2>Estamos selecionando nossos primeiros parceiros.</h2>
+            <p style="max-width: 800px; margin: 0 auto 30px; color: var(--text-dim);">O Promo Itape está em sua fase inicial. Acreditamos tanto no potencial do projeto que estamos convidando empresas estratégicas para **validar e crescer conosco sem qualquer cobrança neste momento**.</p>
+            <div class="grid" style="text-align: left; margin-top: 40px; margin-bottom: 40px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Custo Zero</h4>
+                    <p style="font-size: 0.9rem;">Participe da fase de validação sem investir um real em taxas de adesão.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Prioridade</h4>
+                    <p style="font-size: 0.9rem;">Parceiros iniciais terão condições privilegiadas conforme o projeto expandir.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+                    <h4 style="color: var(--primary); margin-bottom: 10px;">Co-criação</h4>
+                    <p style="font-size: 0.9rem;">Sua empresa ajuda a moldar a melhor forma de comunicar com o público local.</p>
+                </div>
+            </div>
+            <a href="#contato" class="btn btn-primary" style="padding: 18px 40px; font-size: 1.1rem;">Quero ser um parceiro fundador</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-header" style="text-align: center; margin: 0 auto 60px;">
+            <h2>Simples para você, direto para o cliente.</h2>
+        </div>
+        <div class="grid">
+            <div class="card" data-reveal>
+                <div style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 20px;">1</div>
+                <h3>Você envia</h3>
+                <p>Mande sua oferta e as imagens pelo WhatsApp de forma rápida.</p>
+            </div>
+            <div class="card" data-reveal style="transition-delay: 0.1s;">
+                <div style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 20px;">2</div>
+                <h3>Nós publicamos</h3>
+                <p>Nossa curadoria organiza a oferta para garantir o máximo de interesse.</p>
+            </div>
+            <div class="card" data-reveal style="transition-delay: 0.2s;">
+                <div style="width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 20px;">3</div>
+                <h3>O público compra</h3>
+                <p>O interessado entra em contato direto com você para concluir a venda.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quotes">
+        <div class="container" data-reveal>
+            <p class="quote-text">"Não é sobre postar uma foto. É sobre ocupar o espaço onde a atenção da cidade está concentrada."</p>
+            <p style="margin-top: 20px; color: var(--primary); font-weight: bold;">Promo Itape • Visão Estratégica</p>
+        </div>
+    </section>
+
+    <section class="container hero" id="contato" style="padding-top: 100px;">
+        <h2 data-reveal style="font-size: 3rem; margin-bottom: 24px; letter-spacing: -2px;">Sua empresa pronta para o próximo nível?</h2>
+        <p data-reveal>Entre agora para crescer junto com o projeto que vai transformar o comércio local de Itapetininga.</p>
         <div data-reveal>
-            <h2>Coloque sua promoção onde a cidade vai ver.</h2>
-            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 40px;">Não deixe sua empresa ser esquecida. Junte-se ao canal que está mudando o consumo local em Itapetininga.</p>
-            <a href="https://wa.me/5515998538345?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20como%20divulgar%20minha%20empresa%20no%20Promo%20Itape." class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;">Divulgar agora</a>
-            <p style="margin-top: 30px; font-size: 0.8rem; color: #444;">Suporte e curadoria 100% humanizados.</p>
+            <a href="https://wa.me/5515998538345?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20como%20ser%20um%20parceiro%20do%20Promo%20Itape." class="btn btn-primary" style="padding: 20px 48px; font-size: 1.1rem;">Quero ser parceiro agora</a>
         </div>
     </section>
 
     <footer>
-        <div class="logo" style="font-size: 1.1rem;">PROMO ITAPE<span class="dot">.</span></div>
-        <p>&copy; 2024 • Itapetininga, SP. Todos os direitos reservados.</p>
+        <div class="container">
+            <div class="logo" style="justify-content: center;">PROMO <span>ITAPE</span></div>
+            <p style="margin-top: 20px;">Transformando a visibilidade local em oportunidade real.</p>
+            <p style="margin-top: 10px; opacity: 0.5;">© 2024 Itapetininga, SP. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script>
-        // Inicializar Ícones
+        // Inicializar ícones
         lucide.createIcons();
 
-        // Animação de Scroll (Reveal)
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // Reveal animations on scroll
+        const reveal = () => {
+            const reveals = document.querySelectorAll('[data-reveal]');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        };
 
-        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-
-        // Efeito Parallax suave no Glow
-        window.addEventListener('mousemove', (e) => {
-            const glow = document.querySelector('.glow');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            glow.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
-        });
+        window.addEventListener('scroll', reveal);
+        reveal(); // Run once on load
     </script>
 </body>
 </html>
